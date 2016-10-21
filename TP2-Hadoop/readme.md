@@ -1,12 +1,12 @@
-### TP2 Hadoop
+# TP2 Hadoop
 
-# Information
+### Information
 
 + I used Intellij and Maven to create and compile the project, with Java 1.8 installed
 + I generated a single jar file containing the three mapreduce functions, which I uploaded on the virtual machine with the scp command.
 + I ran the queries on the jar file with the hadoop jar command
 
-# Useful commands
+### Useful commands
 Upload Jar to the server
 <pre><code> scp filepath.jar login@MV_IP </code></pre>
 Run Java queries from the Jar with Hadoop
@@ -16,7 +16,7 @@ View output
 
 
 
-* Questions 
+### Questions 
 
 1) Create M/R Softwares to get these stats (1 M/R per stat) :
 - Count first name by origin
@@ -25,7 +25,7 @@ View output
 
 2) For each M/R, can we use combiner? Why?
 
-* Answers : 
+### Answers : 
 
 1) I created the java code for the two first stats. They are attached in the folder. 
 For the third stat, I was only able to compute the number of male and female percentages, not the proportion.
