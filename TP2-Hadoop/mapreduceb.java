@@ -29,14 +29,15 @@ public class mapreduceb {
         public void map(Object key, Text value, Context context
         ) throws IOException, InterruptedException {
             String[] result = value.toString().split(";");
-            /** Ici on compte le nombre de tokens séparés par des "," dans la
-             * troisième colonne pour compter le nombre d'origines du prénom
+            /**Here we count the number of tokens separated by comma ","
+             * in the third colum to count the number of origins of a prenom
              */
             StringTokenizer itr = new StringTokenizer(result[2],",");
             System.out.println(itr.countTokens());
-            /** Pour chaque prénom, on renvoie (nombre d'origines,1)
-             * Pas de boucle while nécessaire ici comme dans le mapper a,
-             * car on s'intéresse au nombre d'origines et non aux origines différentes
+            /** For every prenom, we return (number of origins,1)
+             * Here the while loop is not necessary like in the mapper a
+             * since we care only about the number of origins, and not
+             * about the origins themselves
              */
             word.set(String.valueOf(itr.countTokens())+"origins");
             context.write(word, one);
@@ -44,7 +45,7 @@ public class mapreduceb {
         }
     }
 
-    /** on reprend le meme reducer
+    /** We reuse the same reducer as in mapreducea
      *
      */
 
