@@ -11,6 +11,9 @@ Upload Jar to the server
 <pre><code> scp filepath.jar login@MV_IP </code></pre>
 Run Java queries from the Jar with Hadoop
 <pre><code>hadoop jar filename.jar javaquery filetoparse.csv outputfile </code></pre>
+View output 
+<pre><code>hdfs dfs -cat outputfile/part-r-00000</code></pre>
+
 
 
 Questions 
