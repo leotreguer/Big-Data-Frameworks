@@ -20,4 +20,6 @@ Answers :
 1) I created the java code for the two first stats. They are attached in the folder. 
 For the third stat, I was only able to compute the number of male and female percentages, not the proportion.
 
-2) 
+2) For the two first M/R queries, we are computing an addition of word counts. Therefore, it is fine to use a combiner as the sum is both commutative and associative as it creates no issues between the map and reduce phases.
+For the third M/R, we are computing a proportion of word counts (male and female occurences in the list). Here, we should not use a combiner as the proportio computation is not neither commutative nor associative.
+
