@@ -1,10 +1,17 @@
 ##TP2 Hadoop
 
-Information
+*Information
 
 - I used Intellij and Maven to create and compile the project, with Java 1.8 installed
 - I generated a single jar file containing the three mapreduce functions, which I uploaded on the virtual machine with the scp command.
 - I ran the queries on the jar file with the hadoop jar command
+
+* Useful commands
+Upload Jar to the server
+<pre><code> scp filepath.jar login@MV_IP </code></pre>
+Run Java queries from the Jar with Hadoop
+<pre><code>hadoop jar filename.jar javaquery filetoparse.csv outputfile </code></pre>
+
 
 Questions 
 
