@@ -26,17 +26,16 @@ public class mapreducea {
 
         public void map(Object key, Text value, Context context
         ) throws IOException, InterruptedException {
-            /** on parcourt le CVS ligne par ligne en définissant ";" comme délimiteur
-             *
+            /** The CSV file is read row by row, with ";" being the delimiter in a row             *
              */
             String[] result = value.toString().split(";");
-            /** on lit le contenu de la troisième colonne, celle des origines, en définissant ","
-             * comme délimiteur pour les cas où un prénom a plusieurs origines.
-             * Chaque token itr correspond à une origine différente
+            /** We read the content of the third column (the one with the prenoms's origins)
+             * We define "," as delimiter to assess whether a prenom has multiple origins.
+             * Every token itr corresponds to a different origin
              */
             StringTokenizer itr = new StringTokenizer(result[2],",");
-            /** pour chaque prénom de la liste on renvoie (origin,1) autant de fois
-             * qu'il y a d'origine
+            /** for every prenom in the liste, we return (origin,1)
+             * for every origin there is.
              */
             while (itr.hasMoreTokens()) {
                 word.set(itr.nextToken());
@@ -45,7 +44,7 @@ public class mapreducea {
         }
     }
 
-    /** le reducer est classique ici
+    /** The reducer function is classical here.
      *
      */
     public static class SumReducera
