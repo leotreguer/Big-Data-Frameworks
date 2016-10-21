@@ -1,3 +1,6 @@
+/**added comments
+*/
+
 package ltreguer.hadoop;
 /**
  * Created by Léo on 13/10/2016.
