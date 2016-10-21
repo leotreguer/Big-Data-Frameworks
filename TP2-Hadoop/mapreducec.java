@@ -21,10 +21,15 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 import static java.lang.Math.toIntExact;
 
-/** Ici, on ne parvient pas à calculer la fréquence
- * On renvoie le nombre de prénoms féminins, le nombre de prénoms masculins
- * et le nombre total de prénoms. Reste à effectuer la division pour
- * obtenir la fréquence, mais je ne suis pas parvenu à l'
+/** Here, we fail to compute the frequency of the gender of the prenom
+ * We manage the number of female prenoms, male prenoms, and the total
+ * number of prenoms. We need to compute the division to get the frequency
+ * but I did not manage to do it through a MAP/reduce program.
+ * I think we could use the TaskCount function from Hadoop, which is given
+ * once the program runs in Hadoop
+ * "Map-Reduce Framework
+ Map input records=11526 -> Same as number of rows
+"
  */
 public class mapreducec {
 
@@ -33,10 +38,10 @@ public class mapreducec {
 
         private final static IntWritable one = new IntWritable(1);
         private Text word = new Text();
-        /** on cree un nouveau mot Total_Key qui est compté à chaque fois
-         * que l'on change de ligne
-         * Total_key correspond au nombre total de prénoms
-         * C'est le dénominateur dans le calcul de la fréquence
+        /** We create a new word "total_key", which is counted
+         * every time we switch row.
+         * * Total_key is the total number of prenoms
+         * It is the denominator in the computation of the frequency
          *
          */
         private static final Text TOTAL_KEY = new Text("TOTAL_KEY");
@@ -46,10 +51,8 @@ public class mapreducec {
             String[] result = value.toString().split(";");
 
             StringTokenizer itr = new StringTokenizer(result[1],",");
-            /** on reprend le meme mapper que pour la question 2,
-             * sauf que l'on renvoie deux résultats au lieu d'un seul
-             * pour chaque occurence de f ou m.
-             */
+            /** We take the same mapper as mapper b, but we return two results
+             * instead of one for every occurence of f or m            */
 
             while (itr.hasMoreTokens()) {
                 word.set(itr.nextToken());
@@ -57,7 +60,7 @@ public class mapreducec {
 
             }
             context.write(TOTAL_KEY,one);
-            /**On renvoie (gender,1) et (Total_Key,1)
+            /**We return (gender,1) and (Total_Key,1)
 
              *
              */
@@ -92,7 +95,6 @@ public class mapreducec {
         int inputRecordCounter;
         Configuration conf = new Configuration();
         conf.set("mapred.textoutputformat.separatorText", ",");
-        inputRecordCounter=counters.findCounter("org.apache.hadoop.mapred.Task$Counter","MAP_INPUT_RECORDS").getvalue();
         Job job = Job.getInstance(conf, "namebynumberoforigins");
         job.setJarByClass(mapreducec.class);
         job.setMapperClass(TokenizerMapperc.class);
