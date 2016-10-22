@@ -16,17 +16,17 @@ hdfs dfs -cp /res/prenoms.csv prenoms/0000
 Then we create two tables : 
 
 ```
-CREATE TABLE prenomstestb (
+CREATE TABLE prenomstest2 (
     prenoms STRING, 
     gender ARRAY<STRING>,
     origin array<STRING>, 
     version DOUBLE)
 ROW FORMAT 
-DELIMITED FIELDS TERMINATED BY `\073` 
+DELIMITED FIELDS TERMINATED BY '\073' 
 collection items terminated by ',' 
-STORED AS TEXTFILE LOCATION `/user/ltreguer/prenoms`<code>
+STORED AS TEXTFILE LOCATION '/user/ltreguer/prenoms'
 
-CREATE TABLE prenomstestb_opt(
+CREATE TABLE prenomstest2_opt(
     prenoms STRING,
     gender array<string>,
     origin array<string>,
@@ -37,7 +37,7 @@ CREATE TABLE prenomstestb_opt(
 We copy the CSV into the table. 
 ```
 LOAD DATA INPATH '/user/ltreguer/prenoms' INTO TABLE prenomstestb;
-
+ 
 INSERT INTO TABLE prenomstestb_opt SELECT * FROM prenomstestb;
 ```
 ###Questions (the same as in TP2)
@@ -64,12 +64,12 @@ from ((select count(*) as countg,gdr from prenomstestb_opt lateral view explode(
 ```
 
 This query is perfectible. 
-Getting the number of first names and the number of male and female occurences with the following queries only take 0.06sec and 
+Getting the number of first names and the number of male and female occurences with the following queries only take 0.06sec and about 10 seconds
 
 ```
 select count(*) from prenomstestb_opt;
 
-sh
+SELECT count(*), gdr FROM prenomstestb_opt LATERAL VIEW explode(gender) adTable AS gdr GROUP BY gdr;
 ```
 
 
