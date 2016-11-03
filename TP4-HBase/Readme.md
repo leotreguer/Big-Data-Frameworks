@@ -5,5 +5,4 @@
 2) We write our Java code
 
 3) We get the hbase-site.xml file from the cluster with the following scp command :
-
-<code><pre> scp id@adresse:/etc/hbase/conf/hbase-site.xml /C/TP_HBase/ </pre></code>
+<code><pre> scp id@adress:/etc/hbase/conf/hbase-site.xml /C/TP_HBase/ </pre></code>
