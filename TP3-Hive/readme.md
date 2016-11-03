@@ -78,8 +78,16 @@ SELECT count(*), gdr FROM prenoms_opt LATERAL VIEW explode(gender) adTable AS gd
 ###Information
 
 Once the hql file has been generated, we can run it using : 
-
 <code><pre>hive -f /home/ltreguer/q1.hql </pre></code>
+
+Here the hql file contains the following command : 
+
+```
+USE ltreguer;
+SELECT count(*), org FROM prenoms_opt LATERAL VIEW explode(origin) adTable AS org GROUP BY org;
+
+```
+
 
 
 
