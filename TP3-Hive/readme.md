@@ -72,7 +72,14 @@ Getting the number of first names and the number of male and female occurences w
 select count(*) from prenoms_opt;
 
 SELECT count(*), gdr FROM prenoms_opt LATERAL VIEW explode(gender) adTable AS gdr GROUP BY gdr;
+
 ```
+
+###Information
+
+Once the hql file has been generated, we can run it using : 
+
+<code><pre>hive -f /home/ltreguer/q1.hql </pre></code>
 
 
 
