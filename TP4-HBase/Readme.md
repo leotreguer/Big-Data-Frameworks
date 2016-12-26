@@ -27,6 +27,21 @@ I used IntelliJ with Maven to do this work on Hbase.
 Note : Before uploading it to the cluster, I had to reduce the size of the Jar file as the space on the cluster was limited. I excluded some useless functions that were included in the Jar file via the Pom.xml file and the maven-shade plugin. Please see the pom.xml file code for more information
 
 
+### Useful Hbase commands
+
+To enter Hbase on the cluster
+<code><pre>  hbase shell </pre></code>
+
+To list the existing tables
+<code><pre>  list </pre></code>
+
+To delete a table (2 steps)
+1) <code><pre>  disable 't1' </pre></code>
+2) <code><pre>  drop 't1' </pre></code>
+
+To view more information on a table
+<code><pre>  describe 't1' </pre></code>
+
 
 
 
