@@ -18,6 +18,8 @@ Then, we put the hbase_site.xml configuration file in the following folder of ou
 I used IntelliJ with Maven to do this work on Hbase.
 
 3) We write the Java code to create the Hbase table, which is able to design a social network. The Java code is available in this folder.
+I found some help here:
+https://autofei.wordpress.com/2012/04/02/java-example-code-using-hbase-data-model-operations/
 
 4) We build the project with Intellij, and we generate the Jar file with the "package" maven function
 
@@ -41,14 +43,13 @@ Below is an excerpt of the database :
 
 Current Social Network info :
 Jack friends:BFF 1482770594675 Anna
-Jack friends:others 1482770604475 Chloé,René,
+Jack friends:others 1482770604475 Chloé,René
 Jack info:age 1482770576545 34
 Jack info:gender 1482770577522 M
 Jennifer friends:BFF 1482770922063 Madonna
 Jennifer friends:others 1482770934895 Nciolas,Anna,
 Jennifer info:age 1482770909248 22
 Jennifer info:gender 1482770910524 M
-
 
 
 ### Useful Hbase commands
