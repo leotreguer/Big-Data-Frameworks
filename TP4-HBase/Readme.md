@@ -43,9 +43,13 @@ in friends: list of friends and BFF : name of the Best Friend (row ID)
 Below is an excerpt of the database : 
 
 Current Social Network info :
+
 Jack friends:BFF 1482770594675 Anna
+
 Jack friends:others 1482770604475 Chloé,René
+
 Jack info:age 1482770576545 34
+
 Jack info:gender 1482770577522 M
 
 
