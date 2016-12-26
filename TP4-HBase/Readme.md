@@ -24,7 +24,31 @@ I used IntelliJ with Maven to do this work on Hbase.
 5) We upload it to the cluster via the below command 
 <code><pre>  scp filepath.jar login@MV_IP </pre></code>
 
-Note : Before uploading it to the cluster, I had to reduce the size of the Jar file as the space on the cluster was limited. I excluded some useless functions that were included in the Jar file via the Pom.xml file and the maven-shade plugin. Please see the pom.xml file code for more information
+Note : Before uploading it to the cluster, I had to reduce the size of the Jar file as the space on the cluster was limited. I excluded some useless functions that were included in the Jar file via the Pom.xml file and the maven-shade plugin. Please see the pom.xml file code for more information. I found some help here : 
+https://maven.apache.org/plugins/maven-shade-plugin/examples/includes-excludes.html
+
+### Social Network
+
+The Java program creates a social network using Hbase and a REPL (Read-Eval-Print-Loop) to fill up the database
+
+The database contains the following info :
+as row id: the firstnames of peoples
+as column families : info, friends
+in info: gender, age
+in friends: list of friends and BFF : name of the Best Friend (row ID)
+
+Below is an excerpt of the database : 
+
+Current Social Network info :
+Jack friends:BFF 1482770594675 Anna
+Jack friends:others 1482770604475 Chloé,René,
+Jack info:age 1482770576545 34
+Jack info:gender 1482770577522 M
+Jennifer friends:BFF 1482770922063 Madonna
+Jennifer friends:others 1482770934895 Nciolas,Anna,
+Jennifer info:age 1482770909248 22
+Jennifer info:gender 1482770910524 M
+
 
 
 ### Useful Hbase commands
@@ -36,8 +60,8 @@ To list the existing tables
 <code><pre>  list </pre></code>
 
 To delete a table (2 steps)
-1) <code><pre>  disable 't1' </pre></code>
-2) <code><pre>  drop 't1' </pre></code>
+<code><pre>  disable 't1' </pre></code>
+<code><pre>  drop 't1' </pre></code>
 
 To view more information on a table
 <code><pre>  describe 't1' </pre></code>
